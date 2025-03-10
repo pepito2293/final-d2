@@ -1,0 +1,342 @@
+/* --- Styles globaux pour la page --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #c4e7fd 0%, #9ed8ff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Menu hamburger --- */
+.menu-hamburger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.menu-hamburger a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-hamburger a:hover {
+    background-color: #ffd700;
+    color: #000;
+}
+
+.menu-hamburger a.active {
+    background-color: #ffd700;
+    color: #000;
+}
+
+/* --- Style du titre principal (h1) --- */
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    text-align: center;
+}
+
+/* --- Vague décorative sous le titre --- */
+.wave {
+    background-color: #ffd700;
+    height: 30px;
+    width: 100%;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(180deg);
+    margin-bottom: 30px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Barre d'outils --- */
+.toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-button i {
+    font-size: 18px;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.primary {
+    background-color: #ffd700;
+    color: #000;
+}
+
+.action-button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* --- Personnalisation des cartes --- */
+.card-customization {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.slider-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slider-group {
+    margin: 15px 0;
+}
+
+.slider-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.slider-label i {
+    color: #666;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* --- Grille des cartes --- */
+.card-container-wrapper {
+    width: 100%;
+    max-width: 1400px; /* Augmenté pour accommoder les cartes plus grandes */
+    margin: 30px auto 60px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 300px); /* Augmenté à 300px */
+    gap: 40px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 300px; /* Augmenté à 300px */
+    height: 300px; /* Augmenté à 300px */
+    background-color: white;
+    border-radius: 0;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 3px solid #333;
+}
+
+/* --- Mode édition --- */
+.edit-mode .card {
+    cursor: pointer;
+    border: 3px dashed #ffd700;
+}
+
+.edit-mode .symbol {
+    cursor: grab;
+}
+
+.edit-mode .symbol.selected {
+    outline: 2px solid #ffd700;
+    z-index: 1000;
+}
+
+.edit-mode .symbol:hover {
+    outline: 2px solid rgba(255, 215, 0, 0.5);
+}
+
+/* --- Symboles --- */
+.symbol {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.2s ease;
+    background: none;
+}
+
+.symbol img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- Contrôles de taille et rotation --- */
+#sizeControl {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: none;
+}
+
+#sizeControl .control-group {
+    display: flex;
+    gap: 30px;
+}
+
+#sizeControl .slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#sizeControl label {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#sizeControl input[type="range"] {
+    width: 200px;
+}
+
+/* --- Overlay de chargement --- */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #ffd700;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1400px) {
+    .card-container {
+        grid-template-columns: repeat(3, 300px);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .card-container {
+        grid-template-columns: repeat(2, 300px);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .card-container {
+        grid-template-columns: repeat(1, 300px);
+        gap: 20px;
+    }
+}
+
+/* --- Pied de page --- */
+footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
